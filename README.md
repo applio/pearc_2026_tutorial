@@ -12,6 +12,10 @@ This page includes links to supplemental material as part of our PEARC 2026 tuto
 * [AI in the loop example for DragonHPC](https://dragonhpc.github.io/dragon/doc/_build/html/cbook/ai-in-the-loop.html)
 
 ## Technical Organizers and Contributers (more to add yet)
-* Pete Mendygral, Hewlett Packard Enterprise
+* Pete Mendygral, HPE
+* Kent Lee, HPE
+* Eric Cozzi, HPE
 * Christine Simpson, Argonne National Laboratory
 * Davin Potts, Appliomics
+* Tom Maiden, PSC
+* TJ Olesky, PSC
