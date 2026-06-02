@@ -14,5 +14,4 @@ This page includes links to supplemental material as part of our PEARC 2026 tuto
 ## Technical Organizers and Contributers (more to add yet)
 * Pete Mendygral, Hewlett Packard Enterprise
 * Christine Simpson, Argonne National Laboratory
-* Dennis Hoppe, HLRS
-* Rishabh Saxens, HLRS
+* Davin Potts, Appliomics
