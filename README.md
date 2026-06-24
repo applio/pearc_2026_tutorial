@@ -20,8 +20,8 @@ little-to-no code changes.
 ## Agenda
 | Time Slot | Minutes | Course | Topic/Exercise | Presenter(s) |
 | --- | --- | --- | --- | --- |
-| 0:00 - 0:15 | 15 | Tutorial introduction | P. Mendygral |
-| 0:15 - 0:45 | 30 | Presentation: AI+HPC workflows and DragonHPC | C. Simpson |
+| 0:00 - 0:15 |  15 | | Tutorial introduction | P. Mendygral |
+| 0:15 - 0:45 | 30 | | Presentation: AI+HPC workflows and DragonHPC | C. Simpson |
 | 0:45 - 1:00 | 15 | 1 | Preparations for exercises | P. Mendygral<br>T. Maiden |
 | 1:00 - 1:30 | 30 | 1 | Python multiprocessing across multiple nodes | P. Mendygral<br>D. Potts |
 
