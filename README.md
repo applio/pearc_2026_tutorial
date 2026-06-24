@@ -18,7 +18,7 @@ can be explored on their laptop or common HPC platforms and be able to scale the
 little-to-no code changes.
 
 ## Agenda
-| Time | Slot | Minutes Course | Topic/Exercise Presenter(s) |
+| Time Slot | Minutes | Course | Topic/Exercise Presenter(s) |
 | --- | --- | --- | --- |
 | 0:00 - 0:15 | 15 | Tutorial introduction | P. Mendygral |
 | 0:15 - 0:45 | 30 | Presentation: AI+HPC workflows and DragonHPC | C. Simpson |
