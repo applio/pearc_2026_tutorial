@@ -24,24 +24,17 @@ little-to-no code changes.
 | 0:15 - 0:45 | 30 | | Presentation: AI+HPC workflows and DragonHPC | C. Simpson |
 | 0:45 - 1:00 | 15 | 1 | Preparations for exercises | P. Mendygral<br>T. Maiden |
 | 1:00 - 1:30 | 30 | 1 | Python multiprocessing across multiple nodes | P. Mendygral<br>D. Potts |
-
-1:30 - 2:00 30 1 Managing Python objects, tensors, and contiguous C. Simpson
-data with the in-memory distributed dictionary K. Lee
-(DDict API)
-2:00 - 2:15 15 Coffee Break
-2:15 - 2:45 30 2 Using Python multiprocessing with GPUs, and P. Mendygral
-PyTorch for multi-node LLM inference
-2:45 - 3:00 15 2 Checkpoint with attendees/Q&A All presenters
-3:00 - 3:15 15 2 Orchestrating MPI applications with the P. Mendygral
-ProcessGroup API
-3:15 - 3:45 30 2 Sharing data between MPI and other processes K. Lee
-using the DDict API C. Simpson
-3:45 - 4:15 30 3 Coupling MPI applications with PyTorch-based P. Mendygral
-inference and training C. Simpson
-4:15 - 4:30 15 3 Checkpoint with attendees/Q&A All presenters
-4:30 - 4:45 15 Coffee Break
-4:45 - 5:50 65 Review/discussion/Q&A/hackathon All presenters
-5:50 - 6:00 10 Wrap-up and next steps P. Mendygral
+| 1:30 - 2:00 | 30 | 1 | Managing Python objects, tensors, and contiguous<br>data with the in-memory distributed dictionary<br>(DDict API) | C. Simpson<br>K. Lee |
+| 2:00 - 2:15 | 15 | | Coffee Break | |
+| 2:15 - 2:45 | 30 | 2 | Using Python multiprocessing with GPUs, and<br>PyTorch for multi-node LLM inference | P. Mendygral |
+| 2:45 - 3:00 | 15 | 2 | Checkpoint with attendees/Q&A | All presenters |
+| 3:00 - 3:15 | 15 | 2 | Orchestrating MPI applications with the<br>ProcessGroup API | P. Mendygral |
+| 3:15 - 3:45 | 30 | 2 | Sharing data between MPI and other processes<br>using the DDict API | K. Lee<br>C. Simpson |
+| 3:45 - 4:15 | 30 | 3 | Coupling MPI applications with PyTorch-based<br>inference and training | P. Mendygral<br>C. Simpson |
+| 4:15 - 4:30 | 15 | 3 | Checkpoint with attendees/Q&A | All presenters |
+| 4:30 - 4:45 | 15 | | Coffee Break | |
+| 4:45 - 5:50 | 65 | | Review/discussion/Q&A/hackathon| All presenters |
+| 5:50 - 6:00 | 10 | | Wrap-up and next steps| P. Mendygral |
 
 ## Primary tool website
 * [DragonHPC Homepage](http://dragonhpc.org)
