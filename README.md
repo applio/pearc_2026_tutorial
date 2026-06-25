@@ -54,3 +54,52 @@ little-to-no code changes.
 * Davin Potts, Appliomics
 * Tom Maiden, PSC
 * TJ Olesky, PSC
+
+# DragonHPC PEARC Tutorial Environment
+
+Welcome to the DragonHPC PEARC Tutorial Environment! We're excited to help you get to know Dragon!
+
+This tutorial environment is built on top of the DevContainer specification. A DevContainer is
+an isolated Docker-based development environment that includes everything needed to work with
+DragonHPC.
+
+Before starting the DragonHPC DevContainer, make sure your system is configured to run
+DevContainers. This is typically done through an IDE such as VS Code, or through a CLI tool
+such as DevPod.
+
+## Prerequisites
+
+1. A working Docker engine.
+   See https://docs.docker.com/engine/install/ for Docker installation instructions.
+
+2. One of the following environments for running the DragonHPC DevContainer:
+
+   - VS Code with the Dev Containers extension installed.
+     See https://code.visualstudio.com/docs/devcontainers/tutorial for setup instructions.
+
+   or
+
+   - DevPod, to access the DragonHPC DevContainer from your computer's shell.
+     Install the DevPod CLI: https://devpod.sh/docs/getting-started/install
+     Then add the DevPod Docker provider: https://devpod.sh/docs/quickstart/devpod-cli
+
+## Starting the DragonHPC DevContainer
+
+Follow the instructions below based on whether you are using VS Code or DevPod.
+
+### Using VS Code
+
+1. Open this project folder locally in VS Code (File > Open Folder...).
+2. Click the pop-up notification in the bottom-right corner that says "Reopen in Container".
+3. If you miss the pop-up, open the Command Palette by pressing Ctrl+Shift+P (or Cmd+Shift+P on macOS).
+4. Run "Dev Containers: Reopen in Container".
+
+VS Code will build the environment, reload the window, and connect you directly into the container.
+
+### Using DevPod
+
+This repository includes three scripts to start, connect to, and stop the DragonHPC DevContainer:
+
+   DevPod-start - starts the DragonHPC DevContainer in the background
+   DevPod-ssh   - opens an SSH connection to the DragonHPC DevContainer
+   DevPod-stop  - stops and removes the DragonHPC DevContainer

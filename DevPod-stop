@@ -1,0 +1,2 @@
+devpod stop pearc-singlenode
+devpod delete pearc-singlenode

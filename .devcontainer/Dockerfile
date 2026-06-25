@@ -1,0 +1,33 @@
+FROM mcr.microsoft.com/devcontainers/base:ubuntu
+
+# Update and install dependencies
+RUN apt-get update \
+    && apt-get install -y \
+    && apt-get install -y \
+    ca-certificates git \
+    make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
+    libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev \
+    libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
+    vim-tiny openssh-client dnsutils
+
+# Download pyenv to install Python
+ENV PYENV_ROOT=/opt/pyenv
+RUN git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
+
+# Compile dynamic bash extension to speed up pyenv
+RUN cd $PYENV_ROOT && src/configure && make -C src
+
+# Build Python 3.12.12 by default.
+ARG python_version=3.12.12
+# Keep Python source files in /usr/local/src
+ENV PYTHON_BUILD_BUILD_PATH=/usr/local/src/
+# Install a Python with a shared object
+ENV PYTHON_CONFIGURE_OPTS="--enable-shared"
+# Build Python and clean-up downloaded tarball
+RUN /opt/pyenv/plugins/python-build/bin/python-build --verbose --keep ${python_version} /usr/local \
+    && rm -fr /usr/local/src/Python-${python_version}.tar.*
+
+# Install DragonHPC wheel
+# Note: This will need to be updated to add any dragon "extras" that are needed
+# RUN pip3 install dragonhpc
+RUN pip3 install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple dragonhpc
