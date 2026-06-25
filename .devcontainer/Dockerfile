@@ -31,3 +31,4 @@ RUN /opt/pyenv/plugins/python-build/bin/python-build --verbose --keep ${python_v
 # Note: This will need to be updated to add any dragon "extras" that are needed
 # RUN pip3 install dragonhpc
 RUN pip3 install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple dragonhpc
+RUN pip3 install jupyter
