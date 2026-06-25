@@ -46,7 +46,7 @@ little-to-no code changes.
 * [Data processing introduction for DragonHPC](https://dragonhpc.github.io/dragon/doc/_build/html/uses/data_processing.html)
 * [AI in the loop example for DragonHPC](https://dragonhpc.github.io/dragon/doc/_build/html/cbook/ai-in-the-loop.html)
 
-## Technical Organizers and Contributers (more to add yet)
+## Technical Organizers and Contributers
 * Pete Mendygral, HPE
 * Kent Lee, HPE
 * Eric Cozzi, HPE
