@@ -100,6 +100,6 @@ VS Code will build the environment, reload the window, and connect you directly 
 
 This repository includes three scripts to start, connect to, and stop the DragonHPC DevContainer:
 
-   DevPod-start - starts the DragonHPC DevContainer in the background
-   DevPod-ssh   - opens an SSH connection to the DragonHPC DevContainer
-   DevPod-stop  - stops and removes the DragonHPC DevContainer
+   * DevPod-start - starts the DragonHPC DevContainer in the background
+   * DevPod-ssh   - opens an SSH connection to the DragonHPC DevContainer
+   * DevPod-stop  - stops and removes the DragonHPC DevContainer

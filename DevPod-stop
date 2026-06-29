@@ -1,2 +1,2 @@
-devpod stop pearc-singlenode
-devpod delete pearc-singlenode
+devpod stop pearc2026tutorial
+devpod delete pearc2026tutorial

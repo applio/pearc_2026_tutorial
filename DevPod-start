@@ -1,1 +1,1 @@
-devpod up . --ide none
+devpod up . --ide none --provider docker --debug
