@@ -32,3 +32,4 @@ RUN /opt/pyenv/plugins/python-build/bin/python-build --verbose --keep ${python_v
 # RUN pip3 install dragonhpc
 RUN pip3 install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple dragonhpc
 RUN pip3 install jupyter
+RUN pip3 install numpy
