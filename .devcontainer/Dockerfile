@@ -8,7 +8,9 @@ RUN apt-get update \
     make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
     libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev \
     libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
-    vim-tiny openssh-client dnsutils
+    vim-tiny openssh-client dnsutils \
+    libopenmpi-dev openmpi-bin gzip libprrte-dev && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Download pyenv to install Python
 ENV PYENV_ROOT=/opt/pyenv
