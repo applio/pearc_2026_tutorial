@@ -23,6 +23,7 @@ RUN cd $PYENV_ROOT && src/configure && make -C src
 ARG python_version=3.12.12
 # Keep Python source files in /usr/local/src
 ENV PYTHON_BUILD_BUILD_PATH=/usr/local/src/
+ENV LD_LIBRARY_PATH=/usr/local/lib/python3.12/site-packages/dragon/lib/
 # Install a Python with a shared object
 ENV PYTHON_CONFIGURE_OPTS="--enable-shared"
 # Build Python and clean-up downloaded tarball
