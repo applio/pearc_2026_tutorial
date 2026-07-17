@@ -1,0 +1,13 @@
+{
+  "task.allowAutomaticTasks": "on",
+  "jupyter.jupyterServerType": "remote",
+  "jupyter.jupyterServerURI": "http://127.0.0.1:8888/?token=dragon-vscode",
+  "jupyter.jupyterServerUri": "http://127.0.0.1:8888/?token=dragon-vscode",
+  "python-envs.pythonProjects": [
+    {
+      "path": ".",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
+}
