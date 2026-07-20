@@ -5,8 +5,6 @@
 
 int main(int argc, char* argv[]) {
     try {
-        std::cout << "Hello World!" << std::endl;
-
         const char* ser_ddict = argv[1];
         std::string iterations_str = argv[2];
         std::string samples_per_iteration_str = argv[3];

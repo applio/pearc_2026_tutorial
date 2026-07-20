@@ -22,7 +22,7 @@ def worker():
         # The following waits until this value is available for this checkpoint
         # because of wait_for_keys on the ddict.
         print(f"Worker {proc_id} waiting for pi from orchestrator.", flush=True)
-        pi = ddict["pi"]
+        pi = ddict.bget("pi")
 
         inside_circle = 0
         for _ in range(samples_per_iteration):
@@ -36,8 +36,6 @@ def worker():
         print(f"Proc {proc_id} providing its update for pi={pi}", flush=True)
         ddict[f"worker{proc_id}"] = pi
         ddict.checkpoint()
-
-
 
 def python():
     ddict = DDict(
@@ -62,7 +60,7 @@ def python():
     pg.add_process(nproc=num_procs, template=proc_template)
 
     print("Writing initial pi value before iteration 0.", flush=True)
-    ddict["pi"] = 0.0
+    ddict.bput("pi", 0.0)
 
     pg.init()
     pg.start()
@@ -77,10 +75,12 @@ def python():
         pi = pi / num_procs
 
         print(f"Writing updated pi={pi} value after iteration {i}.", flush=True)
-        ddict["pi"] = pi
+        ddict.bput("pi", pi)
 
     pg.join()
     pg.close()
+    print(f"Writing final version of pi={pi}", flush=True)
+    ddict.destroy()
 
 def cpp():
     ddict = DDict(
@@ -114,7 +114,6 @@ def cpp():
 
     print("Writing initial pi value before iteration 0.", flush=True)
     xd["pi"] = 0.0
-    print(list(xd.keys()))
 
     pg.init()
     pg.start()
@@ -133,6 +132,8 @@ def cpp():
 
     pg.join()
     pg.close()
+    print(f"Writing final version of pi={pi}", flush=True)
+    xd.destroy()
 
 
 if __name__ == '__main__':
