@@ -7,7 +7,7 @@ def queue_job(batch, nranks):
 
     rank_tmpls = [(nranks, ProcessTemplate(target=sys.executable,
                                            args=("../../course2/orchestrating_MPI/mpi4py_example.py",)))]
-    job = batch.job(process_templates=rank_tmpls, pmi=PMIBackend.PMIX)
+    job = batch.options(pmi=PMIBackend.PMIX).job(process_templates=rank_tmpls)
     print(f"Got a job {job}", flush=True)
     return job.uid, job
 
