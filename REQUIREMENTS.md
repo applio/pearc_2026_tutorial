@@ -43,6 +43,21 @@ container using the Dockerfile in the repo. It is assumed you know how to do thi
 in this case. Once the container is started it should provide all the necessary
 code so you can run the tutorials.
 
+### Using DevPod
+
+You may wish to use DevPod if running without VS Code. If you don't already have it, you will need
+to install the DevPod CLI: https://devpod.sh/docs/getting-started/install.
+Then add the DevPod Docker provider: https://devpod.sh/docs/quickstart/devpod-cli
+
+This repository includes three scripts to start, connect to, and stop the DragonHPC DevContainer:
+
+   * DevPod-start - starts the DragonHPC DevContainer in the background
+   * DevPod-ssh   - opens an SSH connection to the DragonHPC DevContainer
+   * DevPod-stop  - stops and removes the DragonHPC DevContainer
+
+### Starting Jupyter Server in Dragon
+
+Once you have a running container you can start Jupyter server inside Dragon.
 From the root directory of the repo and the command-line inside the container
 type `dragon-jupyter` to start Dragon's Jupyter server. This will print a message
 to the screen that looks like this.
@@ -89,8 +104,8 @@ says that `Dragon is ready`.
 ## Running natively on Mac OS
 
 In this mode you run Dragon natively on Mac OS with no container. These
-directions are considerably less detailed and it is up to the user to know how to
-install and configured software on their Mac.
+directions are considerably less detailed and it is up to you to know how to
+install and configure software on your Mac.
 
 To run natively on Mac OS you will need to install a version of Python. Python
 3.12 is the default when running in a container. You may wish to have that
@@ -121,8 +136,18 @@ install the GNU C++ compiler may be required. The C++ compiler is only needed fo
 two example exercises near the end of the day, so it is not absolutely critical
 to be installed and working, but desirable if possible.
 
+You will need an openMP library installed on your Mac to be able to the MPI based
+tutorials. The Brew package manager for Mac OS includes a package called open-mpi
+that should prove useful.
+
 With the virtual environment active, navigate to
 `course2/sharing_data_mpi_and_others`. In that directory there is a Makefile. If
 you can type `make` in that directory and the program `worker.cpp` program
 compiles, then you have all that you need for compiling the code.
 
+
+## Running on Windows
+
+Windows does not provide a native Linux environment and does not support POSIX
+so the way to run on a Windows machine is in a container with some sort of Linux
+support like WSL 2.
