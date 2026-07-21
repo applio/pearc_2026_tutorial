@@ -1,7 +1,11 @@
 {
+    // The "Chicken and Egg" First Run: Make sure that the Docker image 
+    // has been built and pushed to GitHub before modifying switching the "build"
+    // section below for the "image" tag. 
     "build": {
         "dockerfile": "Dockerfile"
     },
+    // "image": "ghcr.io/DragonHPC/pearc_2026_tutorial/devcontainer:latest",
     "runArgs": [
         "--privileged", // so gdb can attach to processes
         "--ulimit", // These two lines allow core files in the container.
