@@ -34,6 +34,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # Step to format the image name to all lowercase
+      - name: Set lower case image name
+        run: |
+          echo "IMAGE_NAME=ghcr.io/${GITHUB_REPOSITORY,,}/devcontainer" >> $GITHUB_ENV
+
       # 3. Pre-build and push multi-architecture image
       - name: Pre-build and push Dev Container image
         uses: devcontainers/ci@v0.3
@@ -41,7 +46,7 @@ jobs:
           # Avoids a common multi-platform image manifest issue with Skopeo copy failures
           BUILDX_NO_DEFAULT_ATTESTATIONS: true 
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
+          imageName: ${{ env.IMAGE_NAME }}
           imageTag: latest
           platform: linux/amd64,linux/arm64
           push: always
