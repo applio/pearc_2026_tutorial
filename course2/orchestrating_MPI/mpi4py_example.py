@@ -34,7 +34,6 @@ def apply_bounds(u, comm):
     comm.Sendrecv([u[-4:-3], 2, MPI.DOUBLE], dest=rank_r, sendtag=1, recvbuf=[u[0:1], 2, MPI.DOUBLE], source=rank_l, recvtag=1)
 
 def time_step(u, dt, dx, c):
-    u_prime = np.zeros_like(u)
     lu = len(u)
     F = np.zeros_like(u)
 
@@ -60,8 +59,7 @@ def time_step(u, dt, dx, c):
             uR = u[i] - 0.5 * van_leer(r) * deltap
             F[i-1] = c * uR
 
-    u_prime[2:-2] = u[2:-2] - (dt / dx) * (F[2:-2] - F[1:-3])
-    u[:] = u_prime[:]
+    u[2:-2] = u[2:-2] - (dt / dx) * (F[2:-2] - F[1:-3])
 
 def main():
 
@@ -77,7 +75,7 @@ def main():
     Lx = 1.0                    # Domain size
     dx = Lx / (size * nx)       # Cell size
     c = 1.0                     # Advection speed
-    t_final = 1.0               # Final time
+    t_final = 0.1               # Final time
     cfl = 0.4                   # CFL number
     dt = cfl * dx / np.abs(c)   # Time step
 

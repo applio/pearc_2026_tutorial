@@ -1,4 +1,1 @@
-jupyter>=1.1.1
-mpi4pi>=4.1.2
-numpy>=2.5.0
-#dragonhpc
+../requirements.txt
