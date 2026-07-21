@@ -14,6 +14,7 @@
     "onCreateCommand": [],
     // remove the slow git status from the prompt.
     "postStartCommand": "git config codespaces-theme.hide-status 1",
+    "postAttachCommand": "bash .vscode/dragon-jupyter-autostart.sh",
     "settings": {
         "terminal.integrated.profiles.linux": {
             "bash (login)": {
