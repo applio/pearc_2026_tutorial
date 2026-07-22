@@ -141,6 +141,10 @@ directions are considerably less detailed and it is up to you to know how to
 install and configure software on your Windows or Mac laptop. In this mode
 you are not running in a container.
 
+If planning to running natively on Windows you will need to install WSL 2. You
+can [follow directions from Microsoft to install
+it](https://learn.microsoft.com/en-us/windows/wsl/install).
+
 These steps should be executed in order as presented here. System Dependencies need to be
 installed before pip installing Python dependencies.
 
