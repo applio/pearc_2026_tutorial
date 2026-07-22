@@ -1,11 +1,8 @@
 {
-    // The "Chicken and Egg" First Run: Make sure that the Docker image 
-    // has been built and pushed to GitHub before modifying switching the "build"
-    // section below for the "image" tag. 
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
-    // "image": "ghcr.io/DragonHPC/pearc_2026_tutorial/devcontainer:latest",
+    // "build": {
+    //     "dockerfile": "Dockerfile"
+    // },
+    "image": "ghcr.io/dragonhpc/pearc_2026_tutorial/devcontainer:latest",
     "runArgs": [
         "--privileged", // so gdb can attach to processes
         "--ulimit", // These two lines allow core files in the container.
@@ -18,27 +15,31 @@
     // remove the slow git status from the prompt.
     "postStartCommand": "git config codespaces-theme.hide-status 1",
     "postAttachCommand": "bash .vscode/dragon-jupyter-autostart.sh",
-    "settings": {
-        "terminal.integrated.profiles.linux": {
-            "bash (login)": {
-                "path": "/bin/bash",
-                "args": [
-                    "-li"
-                ]
-            }
-        },
-        "terminal.integrated.defaultProfile.linux": "bash (login)"
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash (login)": {
+                        "path": "/bin/bash",
+                        "args": [
+                            "-li"
+                        ]
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash (login)"
+            },
+            "extensions": [
+                "donjayamanne.git-extension-pack",
+                "mhutchie.git-graph",
+                "ms-python.python",
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cpptools-themes",
+                "njpwerner.autodocstring", // allow automatic docstrings in Python
+                "jebbs.plantuml" // support .puml UML diagrams for the docs
+            ]
+        }
     },
-    "extensions": [
-        "donjayamanne.git-extension-pack",
-        "mhutchie.git-graph",
-        "ms-python.python",
-        "ms-vscode.cpptools",
-        "ms-vscode.cpptools-extension-pack",
-        "ms-vscode.cpptools-themes",
-        "njpwerner.autodocstring", // allow automatic docstrings in Python
-        "jebbs.plantuml" // support .puml UML diagrams for the docs
-    ],
     // Uncomment if you set up vscode in Dockerfile and want
     // to run as non-root vscode in devcontainer
     // "remoteUser": "vscode"
