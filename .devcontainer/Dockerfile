@@ -14,6 +14,8 @@ RUN apt-get update \
 
 # Download pyenv to install Python
 ENV PYENV_ROOT=/opt/pyenv
+# use this commented out line if SSL errors are hit on Windows with Zscaler
+# RUN git -c http.sslVerify=false clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
 RUN git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
 
 # Compile dynamic bash extension to speed up pyenv
@@ -32,7 +34,6 @@ RUN /opt/pyenv/plugins/python-build/bin/python-build --verbose --keep ${python_v
 
 # Install DragonHPC wheel
 # Note: This will need to be updated to add any dragon "extras" that are needed
-# RUN pip3 install dragonhpc
-RUN pip3 install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple dragonhpc
-RUN pip3 install jupyter
-RUN pip3 install numpy
+COPY requirements.txt /tmp/pip-tmp/
+RUN pip3 --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
+    && rm -rf /tmp/pip-tmp
