@@ -17,6 +17,7 @@ environment.
 * [Setting Up Mac OS](#setting-up-mac-os)
 * [Setting Up Linux](#setting-up-linux)
 
+<a name="smoke-test"></a>
 Once you have followed the steps in one of these sections you can open a terminal
 window (see Terminal menu in VS Code) or however you get a terminal window in the
 environment you built. If running outside of a container make sure you activate
@@ -27,7 +28,7 @@ repo run:
 dragon smoke_test.py
 ```
 
-If that runs sucessfully, then you are ready to attend the Dragon tutorial.
+If `smoke_test.py` runs sucessfully, then you are ready to attend the Dragon tutorial.
 We are looking forward to seeing you there!
 
 
@@ -52,7 +53,7 @@ in [the section on running with VS Code and Docker](#running-in-a-docker-contain
 
 If you do not have VS Code and/or Docker desktop installed, then you may still be able to
 run a container and use DevPod to start it. Follow the instructions to [use DevPod to
-start the container](#running-in-a-docker-container-without-vs-code).
+start the container](#using-devpod-to-run-in-a-docker-container-without-vs-code).
 
 ### WSL 2
 
@@ -61,7 +62,7 @@ to run [natively on your Laptop](#running-natively-on-your-laptop).
 
 ## Setting up Mac OS
 
-Mac OS has three sets of directions to setting up Dragon on your laptop. Please
+Mac OS has two different options for setting up Dragon on your laptop. Please
 pick the route that best matches your desired setup. The first method, running in a Docker
 container with VS Code is the easiest route if you have that available to you.
 
@@ -74,7 +75,7 @@ To run with VS Code and Docker please follow the instructions to
 [use VS Code and Docker](#running-in-a-docker-container-with-vs-code).
 
 If running on Mac OS with access to Docker, but without VS Code, you can
-[follow the directions here](#running-in-a-docker-container-without-vs-code)
+[follow the directions for using DevPod](#using-devpod-to-run-in-a-docker-container-without-vs-code)
 to get up and running on Mac OS in a container.
 
 ### Mac OS Native
@@ -106,28 +107,18 @@ Once these things are available you can follow these steps to get up and running
 2. Click the pop-up notification in the bottom-right corner that says "Reopen in Container".
 3. VS Code will build the environment, reload the window, and connect you directly into the container.
 4. If you miss the pop-up, open the Command Palette by pressing Ctrl+Shift+P (or Cmd+Shift+P on macOS) and run "Dev Containers: Reopen in Container".
-6. VS Code will run "dragon-jupyter" next right after the container starts. You can click the bottom-right pop-up
+5. VS Code will run "dragon-jupyter" after the container starts. You can click the bottom-right pop-up
    "Open in Browser" when prompted. You will see the browser window with the directory structure.
-7. If you like you can click on the [test.ipynb](test.ipynb) file in the top directory and follow the directions in it.
-8. Return to the top of this document and run the smoke test that is recommended
+6. If you like, you can click on the [test.ipynb](test.ipynb) file in the top directory and follow the directions in it.
+7. Return to the top of this document and run the [smoke test](#smoke-test) that is recommended
 as your last step for set up.
 
 
-## Running in a Docker Container without VS Code
-
-You can run this way as well and you would not be giving anything except some of
-the automation for getting started. In this case you need to start a docker
-container using the Dockerfile in the repo. You can do this by using DevPod
-as outlined below.
-
-### Using DevPod
+## Using DevPod to run in a Docker Container without VS Code
 
 You may wish to use DevPod if running without VS Code. If you don't already have it, you will need
 to install the DevPod CLI: https://devpod.sh/docs/getting-started/install.
 Then add the DevPod Docker provider: https://devpod.sh/docs/quickstart/devpod-cli
-
-For general install directions on DevPod you can also look here at
-https://devpod.sh/docs/getting-started/install.
 
 This repository includes three scripts to start, connect to, and stop the DragonHPC DevContainer:
 
@@ -137,11 +128,11 @@ This repository includes three scripts to start, connect to, and stop the Dragon
 
 Once DevPod is installed and configured on your laptop, running `./DevPod-start` from the root
 directory will start the container. Then you will need to `ssh` into the container with
-`./DevPod-shh`. Typing `exit` when finished with the container will exit the `ssh` session.
+`./DevPod-ssh`. Typing `exit` when finished with the container will exit the `ssh` session.
 Finally, `DevPod-stop` will stop the container once you no longer needed it.
 
 You should start and ssh into the container and then go back to the beginning of this document
-and run the smoke test to be sure you having everything set up correctly.
+and run the [smoke test](#smoke-test) to be sure you having everything set up correctly.
 
 ## Running natively on your Laptop
 
@@ -150,7 +141,7 @@ directions are considerably less detailed and it is up to you to know how to
 install and configure software on your Windows or Mac laptop. In this mode
 you are not running in a container.
 
-These steps should be executed in order as presented here. Dependencies need to be
+These steps should be executed in order as presented here. System Dependencies need to be
 installed before pip installing Python dependencies.
 
 You will want to make sure you have a g++ compiler.
@@ -161,23 +152,23 @@ install the GNU C++ compiler may be required.
 * Under WSL 2 you will need to do `sudo apt-get install g++` to install the C++ compiler.
 * Under Linux insure you have the necessary compiler and dev environment installed.
 
-You will need an open-mpi library installed on your laptop to be able to the MPI based
+You will need an open-mpi library installed on your laptop to be able to run the MPI based
 tutorials.
 
 * The Brew package manager for Mac OS includes a package called open-mpi
 that should prove useful. `brew install open-mpi`
 * The WSL 2 environment will need you to `sudo apt-get install libopenmpi-dev openmpi-bin`.
-* The packages under Linux are installed with `sudo apt-get install libopenmpi-dev openmpi-bin`.
+* The packages under Linux are installed with `sudo apt-get install libopenmpi-dev openmpi-bin`
+or other appropriate package manager.
 
 To run natively you will need to install a version of Python. Python
 3.12 is the default when running in a container. You may wish to have that
 version as well, but 3.11, 12, or 13 should run just fine.
 
-Open a terminal window, navigate to the Repo top-level directory. You need to
-create a Python virtual environment. Then activate that environment. After
-activating it you will need to install a number of packages which are provided in
-requirements.txt. Navigate to the top-level directory of the repository. From
-there do a
+Open a terminal window, navigate to the repo top-level directory. You need to
+create and activate a Python virtual environment. After activating, you will need to install
+a number of required Python packages which are provided in requirements.txt. Navigate to the
+top-level directory of the repository. From there do a
 
 ```bash
 python3 -m venv env3.12
@@ -192,5 +183,5 @@ With the virtual environment active, navigate to
 you can type `make` in that directory and the program `worker.cpp` program
 compiles, then you have all that you need for compiling the code.
 
-Then proceed back to the top of this file and run the `smoke_test.py` program as
+Then proceed back to the top of this file and run the [smoke test](#smoke-test) program as
 instructed to make sure you have all the dependencies installed correctly.
